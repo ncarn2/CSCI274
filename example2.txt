@@ -1,0 +1,6 @@
+Hello Emacs, this
+
+def funct():
+    #doo dooda doo
+
+funct()
