@@ -1,1 +1,36 @@
-Just a test to make sure that this is working...
+Author: Nicholas Carnival
+Due Date: Feb 15 2019
+
+we use wget to download stuff from online...
+
+//tar extraction 
+tar -xvf ("Xtract, verbose, file type")
+
+
+Wildcards pattern matching :
+    '*' star:
+        * gives everything in current directory
+        a* matches every file or dir that starts with a including 'a'
+        *a* finds files with a somewhere in its name
+        .* finds all hidden files 
+    '?' question mark:
+        ??? any file with three characters
+        a?a some file that starts and ends with 'a' 
+    '[]' brackets
+        [0]
+Brace Expansion:    
+    {a,b,c}
+    {0..9} range
+    rm /long/path/{foo, bar} this removes both foo and bar fron long/path
+       
+Quotes: ('")
+    single quotes mean verbatum 'print(0)' returns print(0)
+    double quotes allow things to work "print(0)" returns 0
+Bash Script: 
+    #!usr/bin/env bash   
+    you can slap whatever you want in bash scripts
+NO CLASS NEXT WEEK: Feb 20 2019
+        
+   
+            
+
