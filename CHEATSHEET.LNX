@@ -6,3 +6,25 @@ cdls() { cd "$@" && ls} #zsh function that combines cd and ls
 echo -e "\033(0"
 
 
+    apropos  (the word "apropos" can be defined as "very appropriate to a particular situation").
+    man
+    cd, cd -, and cd with an arbitrary path
+    ls along with it's -a, -R, and -l options
+    cat
+    less
+    export 
+    alias
+    pwd
+    echo and echo -n
+    mkdir and it's option -p
+    rmdir
+    rm and it's options -r and -f
+    find and it's options -type and -name
+    cp and it's option -r
+    mv and it's options -f, -n, and -i
+    touch
+    wget
+    tar
+    scp
+
+

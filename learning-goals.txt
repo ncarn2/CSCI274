@@ -1,0 +1,150 @@
+==============================================================================================
+=					Weeks 1-3  				     =
+==============================================================================================
+Commands:
+    apropos  (the word "apropos" can be defined as "very appropriate to a particular situation").
+    man
+    cd, cd -, and cd with an arbitrary path
+    ls along with it's -a, -R, and -l options
+    cat
+    less
+    export 
+    alias
+    pwd
+    echo and echo -n
+    mkdir and it's option -p
+    rmdir
+    rm and it's options -r and -f
+    find and it's options -type and -name
+    cp and it's option -r
+    mv and it's options -f, -n, and -i
+    touch
+    wget
+    tar
+    scp
+
+
+Concepts:
+    Understand the difference between a relative and absolute path in the linux filesystem
+    Understand the meanings of /, ., and .. in terms of paths
+    Understand the concept of a "working directory"
+    Understand the information displayed in the default prompt on Ubuntu, for example:
+	   cjohnso0@bb136-11:~/linux$	
+	   This prompt says I have a shell running on Host ______ as User ______ and my working directory is _________?
+    Know that ssh allows for running a shell on a remote machine. Be able to explain, in words, what a command like this is saying:
+	   $ ssh cjohnso0@gc297-01.mines.edu
+
+
+Editor:
+    What editor keystroke deletes from the cursor position to the end of the line? Not the whole line!
+    What editor keystroke jumps the cursor to the beginning of a line? To the end of a line?
+    What editor keystroke(s) let you copy, delete, and paste a select region of lines in a file?
+    What editor keystroke(s) let's you save the current file buffer to disk?
+    What keystrokes exit your editor with saving a file?
+    What keystrokes exit your editor without saving the file?
+    What keystrokes allow you to select a region of text (multiple lines) for copying or deleting?
+
+==============================================================================================
+=					Weeks 4-5					     =
+==============================================================================================
+Commands:
+    wc and its options -w and -l
+    file
+    read
+    bash and options -x and -e
+    du
+    df
+    stat
+
+
+Concepts:
+    Know the input and output redirection operators <, >, and >>
+    Know that /dev/null is a special file to which you redirect "garbage" output
+    Know the special meanings of the characters/wildcards ?, *, [set], and [!set]
+    Know the special meanings of the $ and ~ characters
+    Understand quoting rules with single quotes, double quotes, and no quotes. What does the shell do in each scenario when it sees special characters (like * or $)?
+    Be able to trace through simple shell scripts like the shell-dessert.sh explained in class
+
+
+Editor:
+    What keystroke or keystrokes auto-complete words or variable names?
+
+==============================================================================================
+=					Weeks 6-8					     =
+==============================================================================================
+Commands:
+    ps 
+    top
+    kill and option -9
+
+
+Concepts:
+    Understand the special meaning of the $? variable. What does it mean if $? is 0 or nonzero?
+    Understand the difference in Ctrl-C and Ctrl-D
+    Know what Ctrl-L and Ctrl-Z do
+    Understand how to use the while-do-done structure in a bash script
+    Be able to explain the terminating condition of a while loop in terms of $?
+    Know how to reference command line arguments in bash scripts (e.g., what is $1, $2, ..., $@?)
+    Know the special meaning of the $$ variable
+    Know the test command and the importance of its exit status.
+    Be able to read the man page for test to find the options you need
+    Know that [] is analagous to test
+    Understand how to use the if-then-fi structure in a bash script
+    Know that the false, true, and yes commands exist
+
+==============================================================================================
+=					Weeks 9-10					     =
+==============================================================================================
+Commands:
+    grep and its options -l, -v, -e
+    head and its -n option; note that head -n 3 is the same as head -3
+    tail and its -n option; note that tail -n 3 is the same as tail -3
+    sort and its options -n, -k, and -t
+    uniq (note the connection to sort)
+    tr and its option -d
+    cut and its options -d, -c and -f
+    tee and its option -a
+
+
+Concepts:
+    Understand the Bash control structure: case-in-esac; a multiway control structure similar to C/C++ switch statement.
+    Understand the Bash control structure: for-do-done; an iterative looping structure not like the C/C++ arithmetic loop.
+    How are wildcards special to the processing of for-do-done loops?
+    In a case-in-esac statement, how do you create a "catch-all" default matching pattern?
+    Know how to write a case-in-esac pattern matching "switch" statement.
+    Know how to write and trace a for-do-done pattern matching loop.
+    What special character sequence signifies the end of a pattern-match block in case-in-esac?
+    When multiple patterns match a case-in-esac predicate, which one is evaluated?
+    Understand how if and while structures in Bash depend on the exit status of command(s)
+    Understand how the case and for structures in Bash depend on patterns
+
+==============================================================================================
+=					Weeks 11-14					     =
+==============================================================================================
+Commands:
+    sed and its options -e, -i, and -n
+    Know the s(ubstitute), p(rint), and d(elete) transformations available with sed
+    Know how to specify a search-and-replace operation in sed (s/Harry/Sally/)
+    How does the g modifier affect the result of s/Harry/Sally/g?
+    Know how to specify line number scope in sed (5p or 1,3s/Harry/Sally/)
+    What does the d sed command do, as in sed 5,8d
+    chmod and its option -R
+    chown and its option -R
+    Know that the sudo command exists and what it allows you to do (provided you are allowed to run the command)
+
+
+Concepts:
+    UNDERSTAND HOW PIPELINES IN *NIX WORK!!!!! For example, explain what each of the following would do:
+    	apropos word | grep "count"
+    	cat file.txt | tr '\n' ' ' | wc -l
+    	sort < file.txt | uniq | head -3
+    	sort < file.txt | uniq | head -3 | cut -c 1
+    	sort < file.txt | uniq | head -3 | cut -c 1 | tr 'ABC' '123'
+
+    How do you assign the output of a command or pipeline as the value of a variable?
+    What are the exit codes of grep and sed --- how are they dependent on the pattern argument and their input file?
+    Know the "3x3" nature of Unix permissions --- what do the mnemonics r, w, and x mean?
+    What can you do to a file or directory with permissions 000?
+    How are permissions related to the octal (base 8) number system?
+    What advantage do the symbolic specifications such as -w and +x have in chmod?
+    Know how to tell what permissions the user, group, and others have for a particular file
