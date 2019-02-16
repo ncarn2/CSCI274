@@ -2,26 +2,35 @@
 =					Weeks 1-3  				     =
 ==============================================================================================
 Commands:
-    apropos  (the word "apropos" can be defined as "very appropriate to a particular situation").
-    man
-    cd, cd -, and cd with an arbitrary path
-    ls along with it's -a, -R, and -l options
-    cat
-    less
-    export 
-    alias
-    pwd
-    echo and echo -n
-    mkdir and it's option -p
-    rmdir
-    rm and it's options -r and -f
-    find and it's options -type and -name
-    cp and it's option -r
-    mv and it's options -f, -n, and -i
-    touch
-    wget
-    tar
-    scp
+APROPOS  (the word "apropos" can be defined as "very appropriate to a particular situation").
+This command searches the man pages and the man page descriptions for the word/term
+MAN
+Man pages contain information on every command...
+CD, CD -, and cd with an arbitrary path
+Changes the directory 
+LS along with it's -a, -R, and -l options
+Ls lists what is in the current directory
+ls -a lists dotfiles
+ls -l lists all of the files and file size
+CAT
+concatenates files and prints them out
+LESS
+displays the contents one line at a time 'space' 'q'
+EXPORT 
+
+alias
+pwd
+echo and echo -n
+mkdir and it's option -p
+rmdir
+rm and it's options -r and -f
+find and it's options -type and -name
+cp and it's option -r
+mv and it's options -f, -n, and -i
+touch
+wget
+tar
+scp
 
 
 Concepts:

@@ -1,30 +1,143 @@
 Author: Nicholas Carnival
-Due: Feb 15 11:59
+Due Date: Feb 15 2019
 
-cdls() { cd "$@" && ls} #zsh function that combines cd and ls
+I used the formate given in learning examples in order to not miss any requirements
 
-echo -e "\033(0"
+==============================================================================================
+=					Weeks 1-3					     =
+==============================================================================================
+Commands:
+APROPOS  (the word "apropos" can be defined as "very appropriate to a particular situation").
+This command searches the man pages and the man page descriptions for the word/term
+MAN
+Man pages contain information on every command...
+CD, CD -, and cd with an arbitrary path
+Changes the directory 
+LS along with it's -a, -R, and -l options
+Ls lists what is in the current directory
+ls -a lists dotfiles
+ls -l lists all of the files and file size
+CAT
+concatenates files and prints them out
+LESS
+displays the contents one line at a time 'space' 'q'
+EXPORT 
+exports the environment variables
+ALIAS
+used to create function/keybindings alias ..='cd ..'
+PWD
+prints working directory
+ECHO and ECHO -n
+writes arguments to the standard output '-n' doesnt append a new line
+MKDIR and it's option -p
+makes a directory
+RMDIR
+deletes an empty directory
+RM and it's options -r and -f
+deletes stuff, recrusive force
+FIND and it's options -type and -name
+searches for a file in a directory hierarchy
+CP and it's option -r
+copies files to directories, recursive
+MV and it's options -f, -n, and -i
+moves files to directories, i prompts before overwriting
+TOUCH
+creates a file 
+WGET
+downloads files from the internet
+TAR
+creates tarballs: tar -czvf name-of-archive.tar.gz /path/to/directory
+extracts tarballs: tar -xzvf archive.tar.gz
+SCP
+basically an ssh copy "secure copy"
 
 
-    apropos  (the word "apropos" can be defined as "very appropriate to a particular situation").
-    man
-    cd, cd -, and cd with an arbitrary path
-    ls along with it's -a, -R, and -l options
-    cat
-    less
-    export 
-    alias
-    pwd
-    echo and echo -n
-    mkdir and it's option -p
-    rmdir
-    rm and it's options -r and -f
-    find and it's options -type and -name
-    cp and it's option -r
-    mv and it's options -f, -n, and -i
-    touch
-    wget
-    tar
-    scp
+Concepts:
+    Understand the difference between a relative and absolute path in the linux filesystem
+    Understand the meanings of /, ., and .. in terms of paths
+    Understand the concept of a "working directory"
+    Understand the information displayed in the default prompt on Ubuntu, for example:
+	   cjohnso0@bb136-11:~/linux$	
+	   This prompt says I have a shell running on Host ______ as User ______ and my working directory is _________?
+    Know that ssh allows for running a shell on a remote machine. Be able to explain, in words, what a command like this is saying:
+	   $ ssh cjohnso0@gc297-01.mines.edu
 
 
+Editor:
+    What editor keystroke deletes from the cursor position to the end of the line? Not the whole line!
+dw
+    What editor keystroke jumps the cursor to the beginning of a line? To the end of a line?
+0 $
+    What editor keystroke(s) let you copy, delete, and paste a select region of lines in a file?
+yank, delete, paste
+    What editor keystroke(s) let's you save the current file buffer to disk?
+w
+    What keystrokes exit your editor with saving a file?
+wq
+    What keystrokes exit your editor without saving the file?
+bang
+    What keystrokes allow you to select a region of text (multiple lines) for copying or deleting?
+visual mode!!!!!!!!!!
+
+
+==============================================================================================
+=					Weeks 4-5					     =
+==============================================================================================
+Commands:
+WC and its options -w and -l
+prints a newline, word, and byte for each file ??
+FILE
+determines file type
+READ
+tries to read bytes from a file descriptor
+BASH and options -x and -e
+starts a new bash process
+DU
+disk usage for each file
+DF
+shows the amount of available disk space
+STAT
+returns information about a file
+
+Concepts:
+    Know the input and output redirection operators <, >, and >>
+>> appends to files and stuff...
+> standard output
+< standard input
+    Know that /dev/null is a special file to which you redirect "garbage" output
+literally nothing
+    Know the special meanings of the characters/wildcards ?, *, [set], and [!set]
+Wildcards pattern matching :
+    '*' star:
+        * gives everything in current directory
+        a* matches every file or dir that starts with a including 'a'
+        *a* finds files with a somewhere in its name
+        .* finds all hidden files 
+    '?' question mark:
+        ??? any file with three characters
+        a?a some file that starts and ends with 'a' 
+    '[]' brackets
+        [0]
+Brace Expansion:    
+    {a,b,c}
+    {0..9} range
+    rm /long/path/{foo, bar} this removes both foo and bar fron long/path
+       
+Quotes: ('")
+    single quotes mean verbatum 'print(0)' returns print(0)
+    double quotes allow things to work "print(0)" returns 0
+       
+            
+    Know the special meanings of the $ and ~ characters
+    Understand quoting rules with single quotes, double quotes, and no quotes. What does the shell do in each scenario when it sees special characters (like * or $)?
+    Be able to trace through simple shell scripts like the shell-dessert.sh explained in class
+
+Bash Script: 
+    #!usr/bin/env bash   
+    you can slap whatever you want in bash scripts
+
+Editor:
+    What keystroke or keystrokes auto-complete words or variable names?
+tab usually
+
+        
