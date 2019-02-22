@@ -1,6 +1,9 @@
 Author: Nicholas Carnival
 Due Date: Feb 15 2019
 
+Really Cool Stuff:
+echo -e "\033(0"
+
 I used the formate given in learning examples in order to not miss any requirements
 
 ==============================================================================================
