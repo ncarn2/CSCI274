@@ -142,5 +142,6 @@ Bash Script:
 Editor:
     What keystroke or keystrokes auto-complete words or variable names?
 tab usually
+Ctrl-N in vim
 
         

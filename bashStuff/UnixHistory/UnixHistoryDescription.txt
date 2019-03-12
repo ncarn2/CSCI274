@@ -1,0 +1,108 @@
+=================================
+=   Assignment - Unix History   =
+=================================
+
+Description
+===========
+In lecture, we have discussed some basic file system navigation commands as
+well as how to edit and save a file, and then run it as a bash script. This
+assignment will have you write a simple script that demonstrates this
+knowledge.
+
+Write a script, called UnixHistory.sh, which will generate an abbrievated
+"tree" of the Unix and Unix like operating system ancestry. The data source, as
+always, can be found on Wikipedia:
+https://en.wikipedia.org/wiki/File:Unix_history.svg
+
+The Unix history begins with a directory named ResearchUnix that has two 
+children: BSD and Commercial.
+
+BSD has two children FreeBSD and NextStep, NextStep has a single child
+directory: MacOSX.
+
+Commercial has one sub-directory named Solaris
+
+NOTE all the elements mentioned above are directories, created with the mkdir
+command. We haven't discussed any files (yet).
+
+Inside of each directory, there should be a regular file called Year (create
+this with an echo > command, just as we have in lecture). The Year file holds
+the approximate beginning date for each Unix variant. Here is a list of values
+for the corresponding Unix variant:
+
+ResearchUnix = 1972
+Commercial = 1984
+BSD = 1977
+Solaris = 1991
+FreeBSD = 1993
+NextStep = 1988
+MacOSX = 2002
+
+A sample run of your script must look like this:
+
+$ bash UnixHistory.sh
+$
+Which is to say nothing should be printed if all went well.
+
+You can check your work with the find command:
+
+$ find
+.
+./UnixHistory.sh
+./ResearchUnix
+./ResearchUnix/BSD
+./ResearchUnix/BSD/NextStep
+./ResearchUnix/BSD/NextStep/Year
+./ResearchUnix/BSD/NextStep/MacOSX
+./ResearchUnix/BSD/NextStep/MacOSX/Year
+./ResearchUnix/BSD/Year
+./ResearchUnix/BSD/FreeBSD
+./ResearchUnix/BSD/FreeBSD/Year
+./ResearchUnix/Commercial
+./ResearchUnix/Commercial/Solaris
+./ResearchUnix/Commercial/Solaris/Year
+./ResearchUnix/Commercial/Year
+./ResearchUnix/Year
+$ cat ResearchUnix/BSD/NextStep/Year
+1988
+$ cat ResearchUnix/Commercial/Solaris/Year
+1991
+$
+
+You will probably want to check all the Year files to be sure of a high grade...
+
+The order of output from find does not have to exactly match the example above.
+But the directory structure under ResearchUnix must be precisely as described.
+
+Details
+=======
+You may assume that a ResearchUnix directory does not pre-exist along side
+UnixHistory.sh. In other words you don't a have to worry about error messages
+because directories already exist.
+
+Hints
+=====
+Recall that you run a script with
+$ bash UnixHistory.sh
+
+and you can see what a script is doing on the inside as it runs with the -x option.
+$ bash -x UnixHistory.sh
+
+In between testing runs of your script, use
+$ rm -r ResearchUnix
+
+to clear out the tree of directories.
+
+Submission
+==========
+Submit your UnixHistory.sh script by uploading it to Canvas. 
+
+Rubric
+======
+[2 pts] Name your script UnixHistory.sh
+[2 pts] No output generated on success.
+[21 pts] Directory tree created is correct
+[1 pt] Correct submission
+
+The exact name and case of the files/directories are important!
+(e.g., UnixHistory.sh is NOT the same as unixhistory.sh and ResearchNix is not the same as ResearchUnix)

@@ -1,0 +1,149 @@
+=================================
+=   	Assignment - Quoth      =
+=================================
+
+Description
+===========
+In lecture, we have now discussed processes and their exit codes, which means
+we can finally begin using branch logic (if statements) in our scripts.
+
+First, download the quotes.tar.gz compressed "tarball" and "unroll" it into a
+working directory (you can do "tar -xzvf <tarball>" to unroll
+gzip tarball <tarball> in the current working directory). The tree should be 
+filled with lots of Star Wars quotes in appropriately named directories.
+
+Write a script, called Quoth.sh that does the following in a loop:
+	1. displays the directories in the current working directory
+	2. prompts the user to type a directory name, or QUIT
+	3. if the user types QUIT, your script should terminate with an exit code of 0
+	4. If the user types a term that is not a quote directory, your script should terminate with an exit code of 7
+	5. otherwise, your script should display the directory chosen by the user and the contents of the quote.txt.
+
+A sample run of your script might look like this:
+
+$ bash Quoth.sh
+Pick a quote-sayer from:
+C3PO
+Chewie
+Darth
+Emperor
+Governor
+Kenobi
+Leia
+Obi-Wan
+Princess
+Quoth.sh
+Solo
+Vader
+... or enter QUIT to exit the script.
+Kenobi
+Kenobi said...
+“Only a master of evil, Darth.”
+
+Pick a quote-sayer from:
+C3PO
+Chewie
+Darth
+Emperor
+Governor
+Kenobi
+Leia
+Obi-Wan
+Princess
+Quoth.sh
+Solo
+Vader
+... or enter QUIT to exit the script.
+Obi-Wan
+Obi-Wan said...
+“Mos Eisley spaceport. You will never find a more wretched hive of scum and villainy.”
+
+Pick a quote-sayer from:
+C3PO
+Chewie
+Darth
+Emperor
+Governor
+Kenobi
+Leia
+Obi-Wan
+Princess
+Quoth.sh
+Solo
+Vader
+... or enter QUIT to exit the script.
+QUIT
+$ echo $?
+0
+$
+
+
+
+Another run of your script could look like:
+
+$ bash Quoth.sh
+Pick a quote-sayer from:
+C3PO
+Chewie
+Darth
+Emperor
+Governor
+Kenobi
+Leia
+Obi-Wan
+Princess
+Quoth.sh
+Solo
+Vader
+... or enter QUIT to exit the script.
+Emperor
+Emperor said...
+“This will be a day long remembered. It has seen the end of Kenobi, and will soon see the end of the rebellion.”
+
+Pick a quote-sayer from:
+C3PO
+Chewie
+Darth
+Emperor
+Governor
+Kenobi
+Leia
+Obi-Wan
+Princess
+Quoth.sh
+Solo
+Vader
+... or enter QUIT to exit the script.
+JarJar
+$ echo $? 
+7
+$
+
+Hints
+=====
+For now you can just use ls -1 to list all of the directories (1 per line) in the current working directory
+You will need to use test or [...] inside of an if-then-fi statement or a while loop in order to terminate on QUIT.
+You will need to use ANOTHER test or [...] inside of an if-then-fi statement in order to terminate on an invalid input.
+Use cat to display the contents of the appropriate quote.txt.
+
+Submission
+==========
+Submit your Quoth.sh script by uploading it to Canvas.
+
+Rubric [26 pts total]
+======
+[2 pts] Name your script Quoth.sh (exact name and case matter!)
+[1 pt] Outputs "Pick a quote-sayer from:"
+[2 pts] Displays all possible quote directories (using ls -1)
+[1 pt] Outputs "... or enter QUIT to exit the script."
+[6 pts] Displays the quote and the name of the person quoted (if it exists).
+	The format should match the examples above e.g:
+	PERSON said...
+	QUOTE		
+[6 pts] Loops until QUIT or incorrect quote directory input
+[4 pts] Exit code 0 on QUIT
+[3 pts] Exit code 7 on incorrect quote directory input
+[1 pt] Correct submission
+
+Hard coding any quotes or directories will result in a low scoring grade. Your
+script should work with any set of directories and quote.txt files!
