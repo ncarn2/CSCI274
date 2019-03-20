@@ -25,6 +25,10 @@ Commercial has one sub-directory named Solaris
 NOTE all the elements mentioned above are directories, created with the mkdir
 command. We haven't discussed any files (yet).
 
+===============================================================
+=========             2/24/19                         =========   
+===============================================================
+
 Inside of each directory, there should be a regular file called Year (create
 this with an echo > command, just as we have in lecture). The Year file holds
 the approximate beginning date for each Unix variant. Here is a list of values
@@ -73,6 +77,10 @@ You will probably want to check all the Year files to be sure of a high grade...
 
 The order of output from find does not have to exactly match the example above.
 But the directory structure under ResearchUnix must be precisely as described.
+
+===============================================================
+=========             2/24/19                         =========   
+===============================================================
 
 Details
 =======

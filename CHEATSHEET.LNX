@@ -4,11 +4,11 @@ Due Date: Feb 15 2019
 Really Cool Stuff:
 echo -e "\033(0"
 
-I used the formate given in learning examples in order to not miss any requirements
+I used the format given in learning examples in order to not miss any requirements
 
-==============================================================================================
+=========================================================================================
 =					Weeks 1-3					     =
-==============================================================================================
+=========================================================================================
 Commands:
 APROPOS  (the word "apropos" can be defined as "very appropriate to a particular situation").
 This command searches the man pages and the man page descriptions for the word/term
@@ -83,9 +83,9 @@ bang
 visual mode!!!!!!!!!!
 
 
-==============================================================================================
+=========================================================================================
 =					Weeks 4-5					     =
-==============================================================================================
+=========================================================================================
 Commands:
 WC and its options -w and -l
 prints a newline, word, and byte for each file ??
@@ -145,3 +145,30 @@ tab usually
 Ctrl-N in vim
 
         
+=========================================================================================
+=					Weeks 6-8					     =
+=========================================================================================
+
+Commands:
+    ps 
+    This command shows information on what TTY processes are currently running
+    top
+    This command displays all running linux processes
+    kill and option -9
+    kill is used to terminate processes
+        kill -9 tells the os to kill the process no matter what it is doing (--FORCE!!!!)
+
+
+Concepts:
+    Understand the special meaning of the $? variable. What does it mean if $? is 0 or nonzero?
+    Understand the difference in Ctrl-C and Ctrl-D
+    Know what Ctrl-L and Ctrl-Z do
+    Understand how to use the while-do-done structure in a bash script
+    Be able to explain the terminating condition of a while loop in terms of $?
+    Know how to reference command line arguments in bash scripts (e.g., what is $1, $2, ..., $@?)
+    Know the special meaning of the $$ variable
+    Know the test command and the importance of its exit status.
+    Be able to read the man page for test to find the options you need
+    Know that [] is analagous to test
+    Understand how to use the if-then-fi structure in a bash script
+    Know that the false, true, and yes commands exist
