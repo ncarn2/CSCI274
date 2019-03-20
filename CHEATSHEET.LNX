@@ -163,7 +163,18 @@ Concepts:
     Understand the special meaning of the $? variable. What does it mean if $? is 0 or nonzero?
     Understand the difference in Ctrl-C and Ctrl-D
     Know what Ctrl-L and Ctrl-Z do
+        Ctrl-L: clears the screen
+        Ctrl-Z: suspends processes, they are still runnning
     Understand how to use the while-do-done structure in a bash script
+        i="0"
+        
+        while [$i -lt 4 ]
+        do
+        echo "Hey"
+        i=$[$i+1]
+        done
+        This should print out hey four times.
+        
     Be able to explain the terminating condition of a while loop in terms of $?
     Know how to reference command line arguments in bash scripts (e.g., what is $1, $2, ..., $@?)
     Know the special meaning of the $$ variable
