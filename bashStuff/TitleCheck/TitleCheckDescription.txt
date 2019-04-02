@@ -1,0 +1,112 @@
+=================================
+=   Assignment - Title Check	=
+=================================
+
+
+Description
+===========
+In lecture, we have discussed for loops and case statements, as well as reading
+multiple tokens from the user with the read command.
+
+Write a script, called TitleCheck.sh that reads a title from the user and
+inspects it for appropriate capitalization. For the purposes of this
+assignment, here are the capitalization rules:
+
+1. Always capitalize the first word of the title
+2. Capitalize any other word except for the nine words:
+	a, an, in, out, to, from, for, the, of
+
+Sample runs of your script might look like this:
+
+$ bash TitleCheck.sh
+Enter a title:
+a bear lives in the woods
+'a' should be capitalized.
+'bear' should be capitalized.
+'lives' should be capitalized.
+'woods' should be capitalized.
+$ bash TitleCheck.sh
+Enter a title:
+A bear lives In The Woods
+'bear' should be capitalized.
+'lives' should be capitalized.
+'In' should NOT be capitalized.
+'The' should NOT be capitalized.
+$ bash TitleCheck.sh
+Enter a title:
+2014 Is the Year for Sport in Colorado
+$ 
+
+Hints
+=====
+1. You can echo single quotes around a variable by putting the whole phrase in double quotes, for example: echo "'${term}'"
+
+2. You can't use {a,an,in,out,...} curly braced patterns in case statements,
+   instead use | as an "alternation operator":
+
+   case "${token}"
+       a|an|in|out|... ) 
+           echo "Hello little word"
+           ;;
+   esac
+
+   The example above is clearly flawed with the elipses, but I think it is enough to jog your memory about | and case.
+
+3. Do use character range matches! [a-z] and [^A-Z] work in case statements!
+
+4. To differentiate whether a token is the first word in a title or not, try adding some special character or symbol
+   to the beginning of your title, e.g.,
+
+   read title
+   for token in _${title}; do
+      echo $token
+
+   If you typed in the title "a bear lives in the woods", the above would print:
+
+   _a
+   bear
+   lives
+   in
+   the
+   woods
+
+   Thus you can tell if a token is the first word of the title in your case statement
+   if it begins with _ (underscore).
+
+5. To print the first word without your special character, you can specify that you want
+   to skip the first character of the token, e.g.,
+
+   case "${token}" in 
+       _* )
+           echo "The first word is '${token:1}'"
+           ;;
+   esac
+
+   The ${token:1} returns the value of the token string starting at index 1 (the second
+   character) instead of index 0 (the first character).
+
+6. The full credit solution is straight-forward algorithmic problem solving --- it
+   doesn't rely on a Linux trick or specialized Unix knowledge outside of these tips.
+   
+7. Make sure you have LC_COLLATE set to C. Run export LC_COLLATE=C on the command line or put LC_COLLATE=C
+   at the top of your script. 
+
+Submission
+==========
+Submit your TitleCheck.sh script by uploading the file to Canvas.
+
+Rubric [23 points total]
+======
+[2 pts] Name your script TitleCheck.sh - exact name and case matter!
+[5 pts] Uncapitalized first word caught
+[5 pts] Miscapitalized words caught
+[5 pts] Properly capitalized words and numbers NOT caught
+[3 pts] Uses only echo, read, for, and case
+[2 pts] One read, for, and case used
+[1 pt]  Correct submission
+
+You may use only for loops, case-esac statements, echo and read. You may not
+use command redirection.
+
+Full credit may be earned only if you use one read, one for loop and one
+case-esac statement (you may use as many echo commands as you want).
