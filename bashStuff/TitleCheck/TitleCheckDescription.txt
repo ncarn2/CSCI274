@@ -64,7 +64,7 @@ Hints
    If you typed in the title "a bear lives in the woods", the above would print:
 
    _a
-   bear
+  bear
    lives
    in
    the

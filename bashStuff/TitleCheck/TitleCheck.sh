@@ -11,7 +11,19 @@ echo "Enter a title: "
 
 read line
 
-echo "'${line}'"
-for token in _${line}; do
-    echo $token
+#echo "'${line}'"
+for word in _$line 
+do
+    #Checks case 
+    case ${word:0:1} in
+    [A-Z]*)
+    echo "$word begin with a uppercase letter."
+    ;;
+    [a-z]*)
+    echo "$word begin with a lowercase letter."
+    ;;
+    _*)
+    echo "$word begins with underscore"
+    ;;
+esac
 done
