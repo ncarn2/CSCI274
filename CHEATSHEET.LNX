@@ -183,3 +183,54 @@ Concepts:
     Know that [] is analagous to test
     Understand how to use the if-then-fi structure in a bash script
     Know that the false, true, and yes commands exist
+
+==============================================================================================
+=					Weeks 9-10					     =
+==============================================================================================
+Commands:
+    grep and its options -l, -v, -e
+        the ultimate search program
+        
+    head and its -n option; note that head -n 3 is the same as head -3
+       displays the first ten files from a file 
+    tail and its -n option; note that tail -n 3 is the same as tail -3
+       the opposite of head 
+    sort and its options -n, -k, and -t
+        sorts a file
+    uniq (note the connection to sort)
+        removes duplicate lines from a file
+
+        sort list.txt | uniq 'this sorts the list then removes duplicates' 
+        sort list.txt | uniq | head | grep 'apple'
+    tr and its option -d
+        translate command: 
+            sort list.txt | tr "[a-z]" "[A-Z]" 'upercases list.txt
+        -d deletes stuff
+            echo "My id is 1245" | tr -d "[:digit:]" 'prints: My id is'
+        -cd deletes inverse
+            echo "My id is 1245" | tr -cd "[:digit:]" 'prints: 1245' 
+    cut and its options -d, -c and -f
+        line by line cut out parts 
+        cut -c 1,2,3 list.txt 'grabs the first three characters from everythin in list.txt'
+        cut -c 1-3,5-8 list.txt 'grabs char 1-3 and 5-8'
+    tee and its option -a
+        displays an output and creates a file at the same time
+
+        sort list.txt | tee list.txt 'puts sorted file into old file'
+        ls | tee list_files.txt 'puts contents of dir into a file'
+        tee -a 'appends'
+         
+
+
+Concepts:
+    Understand the Bash control structure: case-in-esac; a multiway control structure similar to C/C++ switch statement.
+    Understand the Bash control structure: for-do-done; an iterative looping structure not like the C/C++ arithmetic loop.
+    How are wildcards special to the processing of for-do-done loops?
+    In a case-in-esac statement, how do you create a "catch-all" default matching pattern?
+    Know how to write a case-in-esac pattern matching "switch" statement.
+    Know how to write and trace a for-do-done pattern matching loop.
+    What special character sequence signifies the end of a pattern-match block in case-in-esac?
+    When multiple patterns match a case-in-esac predicate, which one is evaluated?
+    Understand how if and while structures in Bash depend on the exit status of command(s)
+    Understand how the case and for structures in Bash depend on patterns
+
