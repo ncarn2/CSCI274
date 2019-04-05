@@ -18,6 +18,11 @@ do
     case ${word:0:1} in
     #Capitalizes first word no matter what
     _*)
+        if [[ ${word:1:1} =~ [0-9] ]]
+        then
+            exit 1
+        fi
+
         if [[ ${word:1:1} =~ [a-z] ]]
         then
             echo "'${word:1:1}' should be capitalized." 
@@ -32,8 +37,6 @@ do
         if ! [[ "$word" =~ ^(a|an|in|out|to|from|for|the|of)$ ]]; then
             echo "'$word' should be capitalized."
         fi
-    ;;
-    [0-9]*)
     ;; 
 esac
 done
