@@ -40,7 +40,8 @@ do
         then
             echo "'${word:1:1}' should be capitalized." 
         fi
-            
     ;;
+    *)
+    ;; 
 esac
 done
