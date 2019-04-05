@@ -16,32 +16,24 @@ for word in _$line
 do
     #Checks case 
     case ${word:0:1} in
-    #This switch statement could be cleaned up, but I ran out of time
-    [A-Z]*)
-        case $word in
-            a|an|in|out|to|from|for|the|of) 
-                ;;
-            *)
-                echo "'$word' should NOT be capitalized."
-                ;;
-        esac
-    ;;
-    [a-z]*)
-        case $word in
-            a|an|in|out|to|from|for|the|of) 
-                ;;
-            *)
-                echo "'$word' should be capitalized."
-                ;;
-        esac
-    ;;
+    #Capitalizes first word no matter what
     _*)
         if [[ ${word:1:1} =~ [a-z] ]]
         then
             echo "'${word:1:1}' should be capitalized." 
         fi
     ;;
-    *)
+    [A-Z]*)
+        if [[ "$word" =~ ^(A|An|In|Out|To|From|For|The|Of)$ ]]; then
+            echo "'$word' should NOT be capitalized."
+        fi
+    ;;
+    [a-z]*)
+        if ! [[ "$word" =~ ^(a|an|in|out|to|from|for|the|of)$ ]]; then
+            echo "'$word' should be capitalized."
+        fi
+    ;;
+    [0-9]*)
     ;; 
 esac
 done
