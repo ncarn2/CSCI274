@@ -16,14 +16,31 @@ for word in _$line
 do
     #Checks case 
     case ${word:0:1} in
+    #This switch statement could be cleaned up, but I ran out of time
     [A-Z]*)
-    echo "$word begin with a uppercase letter."
+        case $word in
+            a|an|in|out|to|from|for|the|of) 
+                ;;
+            *)
+                echo "'$word' should NOT be capitalized."
+                ;;
+        esac
     ;;
     [a-z]*)
-    echo "$word begin with a lowercase letter."
+        case $word in
+            a|an|in|out|to|from|for|the|of) 
+                ;;
+            *)
+                echo "'$word' should be capitalized."
+                ;;
+        esac
     ;;
     _*)
-    echo "$word begins with underscore"
+        if [[ ${word:1:1} =~ [a-z] ]]
+        then
+            echo "'${word:1:1}' should be capitalized." 
+        fi
+            
     ;;
 esac
 done
