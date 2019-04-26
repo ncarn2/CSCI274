@@ -22,7 +22,7 @@ echo 'This file has' "${numEmptyLines}" 'empty line.'
 
 #numbers and letters
 numAlphaCharacters=$(sed 's/[^a-zA-Z0-9]//g' $1 | wc -c) 
-echo 'This file contains' "${numAlphaCharacters}" 'alphanumberic characters.'
+echo 'This file contains' "${numAlphaCharacters}" 'alphanumeric characters.'
 
-fourthWord=$(wc -c < $1)
+fourthWord=$(sed -n 3p $1 | awk '{print $4}')
 echo 'The 4th word of the 3rd line of text is' "/${fourthWord}/"
