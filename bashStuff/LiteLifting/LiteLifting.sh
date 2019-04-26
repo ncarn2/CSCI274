@@ -21,8 +21,8 @@ numEmptyLines=$(( numTotalLines - numNonEmptyLines ))
 echo 'This file has' "${numEmptyLines}" 'empty line.'
 
 #numbers and letters
-numAlphaCharacters=$( | wc -c)
-echo 'This file contains' "${numAlhpaCharacter}" 'alphanumberic characters.'
+numAlphaCharacters=$(sed 's/[^a-zA-Z0-9]//g' $1 | wc -c) 
+echo 'This file contains' "${numAlphaCharacters}" 'alphanumberic characters.'
 
 fourthWord=$(wc -c < $1)
 echo 'The 4th word of the 3rd line of text is' "/${fourthWord}/"
