@@ -20,7 +20,8 @@ echo 'This file has' "${numCharsNoLine}" 'characters not counting newline.'
 numEmptyLines=$(( numTotalLines - numNonEmptyLines ))
 echo 'This file has' "${numEmptyLines}" 'empty line.'
 
-numAlphaCharacters=$(wc -c < $1 )
+#numbers and letters
+numAlphaCharacters=$( | wc -c)
 echo 'This file contains' "${numAlhpaCharacter}" 'alphanumberic characters.'
 
 fourthWord=$(wc -c < $1)
