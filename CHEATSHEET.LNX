@@ -73,6 +73,7 @@ dw
 0 $
     What editor keystroke(s) let you copy, delete, and paste a select region of lines in a file?
 yank, delete, paste
+y, d, p
     What editor keystroke(s) let's you save the current file buffer to disk?
 w
     What keystrokes exit your editor with saving a file?
@@ -81,6 +82,7 @@ wq
 bang
     What keystrokes allow you to select a region of text (multiple lines) for copying or deleting?
 visual mode!!!!!!!!!!
+v
 
 
 =========================================================================================
@@ -161,6 +163,7 @@ Commands:
 
 Concepts:
     Understand the special meaning of the $? variable. What does it mean if $? is 0 or nonzero?
+        exit status of last command
     Understand the difference in Ctrl-C and Ctrl-D
     Know what Ctrl-L and Ctrl-Z do
         Ctrl-L: clears the screen
@@ -177,31 +180,45 @@ Concepts:
         
     Be able to explain the terminating condition of a while loop in terms of $?
     Know how to reference command line arguments in bash scripts (e.g., what is $1, $2, ..., $@?)
+        parameters passed in when executing the script
     Know the special meaning of the $$ variable
+        process ID of the script
     Know the test command and the importance of its exit status.
     Be able to read the man page for test to find the options you need
+        man test
     Know that [] is analagous to test
     Understand how to use the if-then-fi structure in a bash script
+        if [ ]; then
+        fi
     Know that the false, true, and yes commands exist
+        false does nothing, returns exit failure
+        true does nothing, returns successful 
+        yes outputs yes until killed
 
 ==============================================================================================
 =					Weeks 9-10					     =
 ==============================================================================================
 Commands:
     grep and its options -l, -v, -e
+        -l prints out the files that match the search pattern
+        -v returns everything that doesnt match
+        -e uses pattern matching, regex
         the ultimate search program
-        
     head and its -n option; note that head -n 3 is the same as head -3
        displays the first ten files from a file 
+        -n displays n lines
     tail and its -n option; note that tail -n 3 is the same as tail -3
        the opposite of head 
+        -n displays n lines
     sort and its options -n, -k, and -t
         sorts a file
+        -n compares string numeric values
+        -k searches based on a key location
+        -t uses SEP instead of non-blank to blank transitions
     uniq (note the connection to sort)
         removes duplicate lines from a file
-
         sort list.txt | uniq 'this sorts the list then removes duplicates' 
-        sort list.txt | uniq | head | grep 'apple'
+        sort list.txt | uniq | head | grep 'apple' only apple
     tr and its option -d
         translate command: 
             sort list.txt | tr "[a-z]" "[A-Z]" 'upercases list.txt
@@ -212,6 +229,8 @@ Commands:
     cut and its options -d, -c and -f
         line by line cut out parts 
         cut -c 1,2,3 list.txt 'grabs the first three characters from everythin in list.txt'
+        cut -d uses a custom delimeter instead of tabs
+        cut -f selects a range  
         cut -c 1-3,5-8 list.txt 'grabs char 1-3 and 5-8'
     tee and its option -a
         displays an output and creates a file at the same time
@@ -219,18 +238,98 @@ Commands:
         sort list.txt | tee list.txt 'puts sorted file into old file'
         ls | tee list_files.txt 'puts contents of dir into a file'
         tee -a 'appends'
-         
-
 
 Concepts:
     Understand the Bash control structure: case-in-esac; a multiway control structure similar to C/C++ switch statement.
+        case thing to be switched on in
+        [a-z]*)
+        ;;
+        esac
     Understand the Bash control structure: for-do-done; an iterative looping structure not like the C/C++ arithmetic loop.
+        for iterator
+        do stuff to do
+        done
     How are wildcards special to the processing of for-do-done loops?
     In a case-in-esac statement, how do you create a "catch-all" default matching pattern?
-    Know how to write a case-in-esac pattern matching "switch" statement.
-    Know how to write and trace a for-do-done pattern matching loop.
+        *) This will catch everythin or, 'catch-all'
     What special character sequence signifies the end of a pattern-match block in case-in-esac?
     When multiple patterns match a case-in-esac predicate, which one is evaluated?
+        first match
     Understand how if and while structures in Bash depend on the exit status of command(s)
+        if command <<<< this checks the exit status of that command
+        the [] is it's own command
     Understand how the case and for structures in Bash depend on patterns
 
+==============================================================================================
+=					Weeks 11-14					     =
+==============================================================================================
+Commands:
+    sed and its options -e, -i, and -n
+        sed edits text from files or pipes
+        sed -e used to run multiple sed commands
+        sed -i edits the file in place
+        sed -n doesn't output to STDOUT 
+    Know the s(ubstitute), p(rint), and d(elete) transformations available with sed
+    sed s/foo/bar all foo become bar
+    sed '9d' deletes the 9th line
+    
+    Know how to specify a search-and-replace operation in sed (s/Harry/Sally/)
+    sed 's/foor/bar'
+
+    How does the g modifier affect the result of s/Harry/Sally/g?
+    g stands for globally, or everywhere
+
+    Know how to specify line number scope in sed (5p or 1,3s/Harry/Sally/)
+
+    What does the d sed command do, as in sed 5,8d
+    deletes those lines
+
+    chown and its option -R
+    recursive, for directories
+
+    Know that the sudo command exists and what it allows you to do (provided you are allowed to run the command)
+    run things with root permission
+
+Concepts:
+    UNDERSTAND HOW PIPELINES IN *NIX WORK!!!!! For example, explain what each of the following would do:
+    	apropos word | grep "count"
+            finds every instance of the word count in the man pages
+    	cat file.txt | tr '\n' ' ' | wc -l
+           this makes each new line a space and wc = 0 
+    	sort < file.txt | uniq | head -3
+           removes each repeated line top down
+    	sort < file.txt | uniq | head -3 | cut -c 1
+            outputs the first letter of each line
+    	sort < file.txt | uniq | head -3 | cut -c 1 | tr 'ABC' '123'
+            replaces ABC with 123 after sorting
+
+    How do you assign the output of a command or pipeline as the value of a variable?
+        var=$(EXPRESSION)
+
+    What are the exit codes of grep and sed --- how are they dependent on the pattern argument and their input file?
+        sed will only exit 1 if the syntax is wrong, usually exits 0
+        grep will exit 1 if no matches are found
+
+    Know the "3x3" nature of Unix permissions --- what do the mnemonics r, w, and x mean?
+        read, write, execute.
+        ls -la shows the permissions in the UGO order (User, Group, Other)
+        -rwxr-xr--
+
+    What can you do to a file or directory with permissions 000?
+        the root can do anything to the file, anyone else cannot r,w,or x the file
+    How are permissions related to the octal (base 8) number system?
+    0 no permission
+    1 execute
+    2 write
+    3 execute + write
+    4 read
+    5 read + execute
+    6 read + write
+    7 read + write + execute
+    these are all 8 (octal) permissions
+
+    What advantage do the symbolic specifications such as -w and +x have in chmod?
+        w is for write permissions, x is for executable permissions
+
+    Know how to tell what permissions the user, group, and others have for a particular file
+        stat -c '%a' file
